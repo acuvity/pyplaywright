@@ -1,1 +1,1 @@
-from .tracer import Tracer
+from .tracer import WebsocketTracer
