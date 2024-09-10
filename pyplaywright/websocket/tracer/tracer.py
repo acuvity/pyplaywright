@@ -2,7 +2,7 @@ import time
 import uuid
 import jsonlines
 
-class WebsocketRecorder():
+class WebsocketTracer():
     def __init__(self, page, stream=False, stdout=False):
         self.jsonl_data = []
         self.stream = stream
@@ -28,7 +28,7 @@ class WebsocketRecorder():
         ws.on("socketerror", lambda payload: self._event(ws, "error", payload))
         ws.on("close", lambda payload: self._event(ws, "closed", ""))
 
-    def write(self, outputfile="trace.websockets.jsonl"):
+    def write(self, outputfile="trace.websocket.jsonl"):
         if self.stdout:
             for record in self.jsonl_data:
                 print(record)
